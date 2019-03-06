@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eec.mapper.UserMapper">
+   
+	<insert id="insertUser" parameterType="user">
+	  insert into usertab(username,password,phone_number,date) values(#{username},#{password},#{phone_number},#{date})
+	</insert>
+   <select id="getUserName"  parameterType="java.lang.String" resultType="user">
+	select * from usertab where username=#{username}
+	</select>
+	<select id="getUserById"  parameterType="java.lang.Integer" resultType="user">
+	select * from usertab where id=#{id}
+	</select>
+	 <select id="getAllUser"  resultType="user">
+	select * from usertab
+	</select>
+	<select id="getUserOrder"  parameterType="java.lang.String" resultType="order">
+	select * from ordmeet where name=#{name} and needs="0"
+	</select> 
+	<select id="getUserNeeds"  parameterType="java.lang.String" resultType="order">
+	select * from ordmeet where name=#{name} and needs="1"
+	</select> 
+	<delete id="delMyNeeds" parameterType="java.lang.Integer">
+		delete from ordmeet where id=#{id}
+	</delete>
+   <insert id="insertRoom" parameterType="room">
+	  insert into meet(city,type,time,money,num,pic,date,info,state) values(#{city},#{type},#{time},#{money},#{num},#{pic},#{date},#{info},#{state})
+	</insert>
+	<update id="updateUserAdmin" parameterType="user">
+	update usertab set username = #{username},password = #{password},phone_number = #{phone_number},date = #{date} where id=#{id}
+	</update>
+
+	<update id="updateRoom" parameterType="room">
+	update meet set city = #{city},type = #{type},time = #{time},money = #{money},num = #{num},date = #{date},info = #{info},state = #{state} where id=#{id}
+	</update>
+    <insert id="insertOrder" parameterType="order">
+	  insert into ordmeet(name,phone,city,type,time,money,num,date,needs,credate) values(#{name},#{phone},#{city},#{type},#{time},#{money},#{num},#{date},#{needs},#{credate})
+	</insert>
+	
+	 <insert id="insertNeeds" parameterType="order">
+	  insert into ordmeet(name,phone,city,type,time,money,num,date,needs) values(#{name},#{phone},#{city},#{type},#{time},#{money},#{num},#{date},#{needs})
+	</insert>
+	<select id="getMeetByDate"  parameterType="java.lang.String"  resultType="room">
+	select * from meet where date=#{date}
+	</select> 
+	
+	<select id="getAllMeetRoom"   resultType="room">
+	select * from meet
+	</select> 
+	
+	
+<select id="ChooseConditions" parameterType="room" resultType="java.util.Map">  
+    select * from meet  
+    <trim prefix="where" prefixOverrides="and |or">    
+       
+     <if test="city!=null and city!='全部'">  
+                and city = #{city}  
+     </if>  
+    <if test="type!=null and type!='全部'">  
+                and type = #{type}  
+     </if>  
+     <if test="time!=null and time!=''">  
+                and time = #{time}  
+     </if> 
+     <if test="money!=null and money!='全部'">  
+                and money = #{money}
+     </if>  
+     <if test="num!=null and num!='全部'">  
+                and num = #{num}  
+     </if>  
+        
+    </trim>    
+</select> 
+<select id="getRoomById"  parameterType="java.lang.Integer" resultType="room">
+	select * from meet where id=#{id}
+	</select>
+
+<select id="getOrderMeetById"  parameterType="java.lang.Integer" resultType="order">
+	select * from ordmeet where id=#{id}
+	</select>
+
+   <update id="updateRoom1ById" parameterType="java.lang.Integer">
+	update meet set state ="已预约" where id=#{id}
+	</update>
+	<update id="updateRoom1ById2" parameterType="java.lang.String">
+	update meet set state ="空闲" where date=#{date}
+	</update>
+
+
+<delete id="AdminDelUser" parameterType="java.lang.Integer">
+		delete from usertab where id=#{id}
+	</delete>
+
+
+<delete id="AdminDelRoom" parameterType="java.lang.Integer">
+		delete from meet where id=#{id}
+	</delete>
+	
+	<!-- 模糊查询 -->
+	<select id="getRoomsByWords" resultType="room" parameterType="java.lang.String">
+		select * from meet where city like '%${value}%'
+	</select>
+</mapper>

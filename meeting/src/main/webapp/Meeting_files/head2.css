@@ -1,0 +1,84 @@
+﻿@charset "utf-8";
+body { font-size:14px; font-family: "microsoft yahei", sans-serif; color:#666; background:#f5f5f5}
+.clearfix:after {content: ''; display: block;height: 0;clear: both;visibility: hidden;overflow:hidden}
+.clearfix {*zoom:1}
+img { vertical-align:middle; border:0;}
+a, a:hover { color:#666; text-decoration:none}
+i, em { font-style:normal}
+ul,li,ol { list-style:none}
+h1,h2,h3,h4,h5,h6 { font-weight:normal}
+input, select { font-family:inherit; font-family:'\5FAE\8F6F\96C5\9ED1'}
+.fl{float: left;}
+.fr{float: right;}
+.hide { display:none!important}
+.toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.top-bar,.site-guide span,.peri-link{font-family:'\5B8B\4F53'}
+.top-bar,.site-guide span,.peri-link,.footer-bar{font-family:'\5B8B\4F53'}
+.w1200{ width: 1200px; margin: 0 auto;}
+.orange{ color: #ff7900;}
+/* public ratting */
+
+/*顶部*/
+.top-bar{ position:fixed; z-index:200; top:0; width: 100%; min-width:1200px; height: 30px; line-height: 30px; border-bottom: 1px solid #e5e5e5; background: #f9f9f9;}
+.top-bar .rz{width: 50px;border:none;}
+.top-bar .rz a{color: #fff;display: inline-block;width: 100%;height: 30px;line-height: 30px;text-align: center;background: #FD7700;position: absolute;top: -9px;left: -1px;}
+.top-bar .rz a:hover{color: #fff;background: #FEAA60;}
+.container{width:1200px; margin:0 auto;}
+.top-bar li{float:left;padding:0 15px; height:30px; line-height:30px; font-size:12px;position: relative; color: #999;}
+.top-bar .line{ float: left; padding: 0; margin-top: 8px; width: 1px; height: 14px; background: #D1D1D1;}
+.top-bar .top-bar-log{padding-left: 0;}
+.top-bar li a:hover,.top-bar .top-bar-log  a{color:#0072dd}
+.top-bar li a{display: inline-block;color: #999;}
+.top-bar li i{display: inline-block;position: absolute;top: 0;left: 15px;}
+.top-bar-app i{margin-top: 8px; background: url(../Images/sprite.png) 0 -13px no-repeat;width: 9px;height: 14px;}
+.top-bar-wx i{margin-top: 8px;background: url(../Images/sprite.png) 0 -308px no-repeat;width: 18px;height: 14px;}
+.top-bar-favorite i{ margin-top: 8px; background: url(../Images/sprite.png) 0 -71px no-repeat;width: 12px;height: 12px;}
+.top-bar .top-bar-navigate i{background: url(../Images/sprite.png) 0 -125px no-repeat;width: 13px;height: 9px;top: 3px;}
+.top-bar .toHome{ padding-left: 0;}
+.top-bar .toHome i{ margin-top: 9px; background: url(../Images/sprite.png) 0 -883px no-repeat;width: 13px;height: 13px; left: 0;}
+.top-bar .toHome a{ padding-left: 21px;}
+.top-bar-app a{padding-left: 14px;}
+.top-bar-wx a{padding-left: 24px;}
+.top-bar-navigate a{padding-left: 17px;}
+.top-bar .top-bar-navigate,.top-bar .top-bar-wx{border:none;}
+.top-bar-wx .wx-img{position: absolute;left: 3px;top: 22px;display: none;}
+.top-bar-wx:hover .wx-img{display: block;}
+.top-bar  .top-bar-favorite{border-right: none;}
+/*修改开始==新增*/
+.joinUs{ background: #f9f9f9;}
+.joinUs .tagicon{ display: inline-block; width: 20px; height: 6px; background: url(../Images/sprite.png) 10px -64px no-repeat;}
+.cdJoin{ position: relative; width: 105px; height: 24px; margin-top: 4px; line-height: 24px; overflow: hidden;}
+.cdJoin li{ padding: 0; height: 24px; line-height: 24px;}
+.cdJoin .cdjoinlink{ float: left;}
+.top-bar .userLogin{ color: #ff7900;}
+.top-bar .ptgys{ position: relative; width: 135px; height: 24px; margin-top: 2px; overflow: hidden; line-height: 24px; background: #ff7900; border-radius: 10px;}
+.top-bar .ptgys li{ height: 24px; line-height: 24px;}
+.ptgys li a{ float: left; color: #fff !important;}
+.ptgys li a:hover{ color: #fff; text-decoration: underline!important;}
+.ptgys li .tagicon2{ display: inline-block; width: 20px; height: 6px; background: url(../Images/sprite.png) 10px -917px no-repeat;}
+/*修改结束==新增*/
+
+/*头部*/
+.head{ width: 100%;padding-top:20px; min-width: 1200px; height: 107px; border-bottom: 1px solid #e5e5e5; background: #f5f5f5;}
+.head .logo_login{ width: 179px; height: 50px; margin-top: 27px; background: url(../Images/logo_login.png) no-repeat;}
+.head .Tit{ margin-top: 43px; padding-left: 13px; font-size: 24px; color: #999;}
+
+/*底部*/
+.footer{ width: 100%; min-width: 1200px; padding: 20px 0; background: #f5f5f5; font-size: 12px; color: #414141; line-height: 26px; text-align: center;}
+.footer .line{ padding: 0 16px;}
+.footer a{ color: #414141;}
+.footer a:hover{ color: #ff7900;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

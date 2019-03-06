@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eec.mapper.UserMapper">
+	
+    <!--  <select id="getStudent"  parameterType="java.lang.String" resultType="student">
+	select * from student where num=#{num}
+	</select> -->
+	<select id="getStudentName"  parameterType="java.lang.String" resultType="student">
+	select name from student where num=#{num}
+	</select>
+	<select id="getStudentById"  parameterType="java.lang.Integer" resultType="student">
+	select * from student where id=#{id}
+	</select>
+	
+	<insert id="insertStudent" parameterType="student">
+	  insert into student(school,num,name,class1,college,phone,sex,age,major,date) values(#{school},#{num},#{name},#{class1},#{college},#{phone},#{sex},#{age},#{major},#{date})
+	</insert>
+
+	<select id="getRoomByNum" resultType="room" parameterType="java.lang.String" >
+		select * from room where num=#{num}
+	</select>
+	
+<select id="getMyRoomByNum" resultType="room" parameterType="java.lang.String" >
+		select * from room where num=#{num}
+	</select>
+	
+	<select id="getRooms" resultType="room" >
+		select * from room
+	</select>
+	<update id="updatePassword" parameterType="student">
+	update student set school = #{school} where id=#{id}
+	</update>
+	<insert id="insertMyRoom" parameterType="room">
+	  insert into room(className,stuName,num,classNo,floor,date,datepicker) values(#{className},#{stuName},#{num},#{classNo},#{floor},#{date},#{datepicker})
+	</insert>
+	<insert id="insertRoom1" parameterType="room1">
+	  insert into room1(className,classNo,floor,state,seat,media,date) values(#{className},#{classNo},#{floor},#{state},#{seat},#{media},#{date})
+	</insert>
+	<update id="updateRoom" parameterType="room">
+	update room set className = #{className},num = #{num},stuName = #{stuName},floor = #{floor},classNo = #{classNo} where id=#{id}
+	</update>
+	<update id="updateClass" parameterType="room1">
+	update room1 set className = #{className},state = #{state},seat = #{seat},media = #{media},floor = #{floor},classNo = #{classNo} where id=#{id}
+	</update>
+	<update id="updateRooms" parameterType="room">
+	update room1 set className = #{className},num = #{num},stuName = #{stuName},classNO = #{classNO},floor = #{floor} where id=#{id}
+	</update>
+	<delete id="deleteClass" parameterType="java.lang.Integer">
+		delete from room1 where id=#{id}
+	</delete>
+	<select id="getClassById" resultType="room1" parameterType="java.lang.Integer">
+		select * from room1 where id=#{id} 
+	</select>
+	<delete id="deleteRooms" parameterType="java.lang.Integer">
+		delete from room where id=#{id}
+	</delete>
+	<select id="getRoomsById" resultType="room" parameterType="java.lang.Integer">
+		select * from room where id=#{id} 
+	</select>
+	
+	<delete id="deleteRoom" parameterType="java.lang.String">
+		delete from room where num=#{num}
+	</delete>
+	
+	<update id="updateRoom1ById" parameterType="java.lang.Integer">
+	update room1 set state ="已预约" where id=#{id}
+	</update>
+	<update id="updateRoom1ByClassNo2" parameterType="room1">
+	update room1 set state ="空闲" where classNo=#{classNo} and className=#{className}
+	</update>
+	<delete id="deleteStudent" parameterType="java.lang.Integer">
+		delete from student where id=#{id}
+	</delete>
+	<update id="updateStudent" parameterType="student">
+	update student set school = #{school},num = #{num},name = #{name},class1 = #{class1},college = #{college},phone = #{phone},sex = #{sex},age = #{age},major = #{major},date = #{date} where id=#{id}
+	</update>
+	<select id="getAllStuByWords" resultType="student" parameterType="java.lang.String">
+		select * from student where college like '%${value}%'
+	</select>
+	
+	<select id="getAllStuByCollege" resultType="student" parameterType="java.lang.String">
+		select * from student where college like '%${value}%'
+	</select>
+	<select id="getAllStu" resultType="room1" >
+		select * from room1  order by id desc
+	</select>
+	<select id="getAllStudents" resultType="student" >
+		select * from student where num  not like 'admin' 
+	</select>
+	<select id="getAllStuByClass1" resultType="student" parameterType="java.lang.String">
+		select * from student where class1 like '%${value}%'
+	</select>
+	<select id="getAllStuByName" resultType="student" parameterType="java.lang.String">
+		select * from student where name like '%${value}%'
+	</select>
+	
+	
+	<select id="ChooseConditions" parameterType="room1" resultType="java.util.Map">  
+    select * from room1  
+    <trim prefix="where" prefixOverrides="and |or">    
+       
+     <if test="className!=null and className!=''">  
+                and className = #{className}  
+     </if>  
+    <if test="classNo!=null and classNo!=''">  
+                and classNo = #{classNo}  
+     </if>  
+     <if test="floor!=null and floor!=''">  
+                and floor = #{floor}  
+     </if> 
+     <if test="state!=null and state!=''">  
+                and state = #{state}  
+     </if>  
+     <if test="seat!=null and seat!=''">  
+                and seat = #{seat}  
+     </if> 
+     <if test="media!=null and media!=''">  
+                and media = #{media}  
+     </if>  
+     <!-- <if test="class1!=null and class1!=''">  
+                and class1 = #{class1}  
+     </if>  --> 
+        
+    </trim>    
+</select>    
+	
+</mapper>

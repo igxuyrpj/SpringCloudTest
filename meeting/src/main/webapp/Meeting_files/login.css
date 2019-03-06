@@ -1,0 +1,65 @@
+﻿/*登录框css  2016-02-29*/
+body, html { margin: 0px; padding:0px;background-color:#FFF;
+					_background-image:url(about:blank);/*IE6*/
+					_background-attachment:fixed;/*IE6必要，防抖动*/
+					color:#333333;
+					font-family:"microsoft yahei";
+					font-size:12px;
+					line-height:22px;}
+.clear:after,.clearfix:after{content:".";display:block;height:0; line-height:0; font-size:0;clear:both;visibility:hidden}
+.clear,.clearfix{zoom:1}/* IE6-7 触发 hasLayout */
+input::-ms-clear{ display:none;}/*去掉输入框的叉*/
+input::-ms-reveal{ display:none;}/*去掉密码框的眼睛*/
+a{ text-decoration: none;}
+a:hover{ text-decoration: underline;}
+.w1020{ width: 1020px; margin: 0 auto;}
+input,form,h2,button{ margin: 0; padding: 0;}
+button,p,img{ padding: 0; margin: 0; border: none;}
+.right{ float: right;}
+.mt42{ margin-top:42px;}
+
+.logBg{ width: 100%; min-width: 1202px; height: 494px; background: url(../Images/loginpage_bg.jpg) #7378a2 center no-repeat;}
+.login{ width: 310px; padding: 32px 19px 14px 19px; background: #fff; border: 1px solid #beb8ca; box-shadow: 0 0 6px rgba(144,140,178,0.9);}
+.login .logT{ float: left; width: 180px; font-size: 20px; color: #333;}
+.login .phoneLogin{ float: right; display: block; padding-left: 12px; color: #ff7900; font-size: 12px;}
+.login .stateLogin{ width: 110px; background: url(../Images/login_null.png) -1px -127px no-repeat;}
+.login .nomalLogin{ width: 55px; background: url(../Images/login_null.png) -1px -169px no-repeat;}
+
+.login .user{ background: url(../Images/login_null.png) 9px -14px no-repeat;}
+.login .password{ background: url(../Images/login_null.png) 9px -67px no-repeat;}
+.login .inputBox{ position: relative; width: 308px; height: 42px; margin: 20px auto 0 auto; border: 1px solid #cfcfcf;}
+.login .inpTip{ position: absolute; display: block; left: 40px; top: 0; height: 42px; line-height: 42px; font-size: 14px; color: #a9a9a9;}
+.login .inp{ margin-left: 40px; width: 260px; height: 42px; line-height: 42px; border: none;}
+.login .subTip{ position: absolute; left: -1px; bottom: -22px; z-index: 10; width: 294px; height: 20px; padding: 0 7px; line-height: 20px; background: #fff0e3; border: 1px solid #ecb685; color: #ff7900; display: none;}
+.login .stateWord{ float: left; width: 166px; margin-right: 15px;}
+.login .stateWord .stateinp{ width: 120px;}
+.login .getPass{ float: left; display: block; width: 125px; height: 42px; margin: 20px auto 0 auto; border: 1px solid #cfcfcf; font-size: 12px; text-align: center; line-height: 42px; color: #aaa;}
+/* .login .getPass:hover{ background: #3aa466; color: #fff; text-decoration: none;} */
+.login .statePassWord{ display: none;}
+.codeBox{ display: none; position: relative; width: 308px; height: 44px; margin: 20px auto 0 auto;}
+.codeBox .codeinp{ float: left; width: 114px; height: 42px; padding: 0 10px; border: 1px solid #cfcfcf;}
+.codeBox .codeImg{ float: left; width: 97px; height: 42px; border-top: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf;}
+.codeBox .changeCode{ display: block; float: left; width: 47px; padding-left: 26px; height: 42px; line-height: 42px; border: 1px solid #cfcfcf; background: url(../Images/login_null.png) 6px -351px no-repeat; font-size: 12px; color: #aaa;}
+.codeBox .changeCode{}
+.login .ownLogin{ float: left; width: 80px; margin-top: 20px; padding-left: 20px; font-size: 12px; color: #333; background: url(../Images/login_null.png) -1px -207px no-repeat; cursor: pointer;}
+.login .forgetWord{ float: right; display: block; width: 100px; margin-top: 20px; color: #333; text-align: right;}
+.login .loginBtn{ width: 310px; height: 34px; margin-top: 15px; text-align: center; color: #fff; line-height: 34px; font-size: 16px; font-weight: bold; background: #ff7900;}
+.login .loginBtn:hover{ background: #d86600;}
+.login .otherLogin{ height: 52px; line-height: 52px; color: #bababa;}
+.otherLogin .o_T{ float: left; width: 100px;}
+.otherLogin a{ float: left; width: 22px; height: 22px; margin-right: 12px; margin-top: 16px;}
+.otherLogin .qq{ background: url(../Images/login_null.png) -2px -289px no-repeat;}
+.otherLogin .qq:hover{ background: url(../Images/login_null.png) -2px -322px no-repeat;}
+.otherLogin .sina{ background: url(../Images/login_null.png) -34px -289px no-repeat;}
+.otherLogin .sina:hover{ background: url(../Images/login_null.png) -34px -322px no-repeat;}
+.login .adv{ display: block; border-top: 1px solid #dbdbdb; padding-top: 14px; font-size: 12px; color: #ff7900;}
+
+/*登录弹窗*/
+.popBg{ position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: #000;filter: Alpha(opacity=60); -moz-opacity:0.6; opacity:0.6;}
+.loginPop{ position: fixed; left: 50%; top: 50%; margin-left: -175px; margin-top: -260px; z-index: 5;}
+.popTop{ position: relative; z-index: 100; top: 15px; width: 316px; height: 36px; line-height: 36px; padding: 0 16px; background: #dbdbdb; border-top: 1px solid #beb8ca; border-left: 1px solid #beb8ca; border-right: 1px solid #beb8ca; }
+.popTop .lef{ float: left; width: 100px; font-size: 14px; color: #666;}
+.popTop .closePop{ float: right; font-size: 28px; color: #a0a0a0; font-weight: normal; line-height: 30px; cursor: pointer;}
+.onLogin{background-color: #bababa !important;}
+.msg-code-btn{cursor: pointer;}
+.msg-code-btn1{cursor: pointer;}
